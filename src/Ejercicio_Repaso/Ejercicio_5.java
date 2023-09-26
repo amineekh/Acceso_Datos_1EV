@@ -13,6 +13,7 @@ public class Ejercicio_5 {
             int numero = 0;
             int intento = 0;
 
+
             while(aleaotrio != numero){
 
                 intento++;
