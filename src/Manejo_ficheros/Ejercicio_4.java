@@ -1,21 +1,16 @@
 package Manejo_ficheros;
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.io.File;
 
 public class Ejercicio_4 {
     public static void main(String[] args) {
-
         //Tomando el directorio actual como referencia, muestra sus datos tal y como
         //se muestra en el ejemplo siguiente:
-
-        System.out.println("informacion del fichero");
+        System.out.println("INFORMACION DEL FICHERO");
 
         File directorio_Actual = new File(".");
 
         // NOMBRE FICHERO
         System.out.println("NOMBRE: "+directorio_Actual.getName());
-
 
         // RUTA NORMAL
         System.out.println("RUTA: "+directorio_Actual.getPath());
@@ -31,7 +26,7 @@ public class Ejercicio_4 {
         System.out.println("SE PUEDE ESCRIBIR: "+directorio_Actual.canWrite());
 
         // TAMAÑO , BYTES
-        System.out.println("TAMAÑO "+ directorio_Actual.length());
+        System.out.println("TAMAÑO: "+ directorio_Actual.length());
 
         //ES UN DIRECTORIO
         System.out.println("ES UN DIRECTORIO: "+ directorio_Actual.isDirectory());
@@ -41,6 +36,5 @@ public class Ejercicio_4 {
 
         //NOMBRE DEL DIRECTORIO PADRE
         System.out.println("NOMBRE DEL DIRECTORIO PADRE: " +  directorio_Actual.getParent());
-
     }
 }

@@ -1,13 +1,10 @@
 package Manejo_ficheros;
-
 import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 
 public class Ejercicio_8 {
     public static void main(String[] args) {
-
         //Ejercicio 8
         //Utiliza la librería FileUtils para mover dos ficheros
 
@@ -19,12 +16,10 @@ public class Ejercicio_8 {
         //// PASO 2: ALMACENAMOS EN UNA VARIABLE LA RUUTA DESTINO DONDE SE VAN A MOVER LOS FICHEROS
         String RutaDestino = "C:\\Users\\MohamedAmineElkhayya\\IdeaProjects";
 
-
         // PASO 3: Creamos objetos File para representar los archivos de origen y el directorio de destino
         File file_ORIGEN = new File(RutaOrigen);
         File file_ORIGEN_2 = new File(RutaOrigen2);
         File file_DESTINO = new File(RutaDestino);
-
 
         // PASO 4: Intentamos mover los archivos al directorio de destino
         try {
@@ -40,11 +35,6 @@ public class Ejercicio_8 {
             // En caso de error, mostramos un mensaje de error y la traza de excepción.
             System.err.println("Error al mover el archivo");
             ex.printStackTrace();
-
         }
-
-
-
-
     }
 }

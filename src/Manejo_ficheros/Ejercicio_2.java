@@ -6,15 +6,14 @@ public class Ejercicio_2 {
     public static void main(String[] args) {
 
         //ENUNCIADO
-        //Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1.TXT y
-        //FICHERO2.TXT. Posteriormente procede al borrado de los tres.
+        //Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1. TXT y
+        //FICHERO2.TXT. Posteriormente, procede al borrado de los tres.
 
         //PARTE 1: BOORAMOS FICHERO 1
         //ruta fichero 1
         String RutaCompleta = "C:\\Users\\MohamedAmineElkhayya\\IdeaProjects\\Acceso_Datos_1EV\\NUEVODIR\\fichero1-copia.txt";
 
-
-        // crea un objeto file para represental el fichero
+        // crea un objeto file para representar el fichero
         File fichero = new File(RutaCompleta);
 
         // Verifica si el fichero existe
@@ -69,8 +68,5 @@ public class Ejercicio_2 {
         } else {
             System.err.println("El directorio no existe en la ruta especificada.");
         }
-
-
-
     }
 }

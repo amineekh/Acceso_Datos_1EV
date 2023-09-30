@@ -1,17 +1,12 @@
 package Manejo_ficheros;
-
 import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 
 public class Ejercicio_7 {
     public static void main(String[] args) {
-
         // Ejercicio 7
         //Utiliza la librería FileUtils para copiar dos ficheros
-
-
 
         // PASO 1: COGEMOS LAS RUTAS DE LOS FICHEROS   QUE QUEREMOS COPIAR Y LOS ALMACENAMOS EN UNA VARIABLE
         // TAMBIEN SE PUEDEN CREAR LOS FICHEROS MEDIANTE EL CODIGO O MEDIANTE LA INTERFAZ GRAFICA
@@ -35,7 +30,6 @@ public class Ejercicio_7 {
             // En caso de error, mostramos un mensaje de error y la traza de excepción.
             System.err.println("Error al copiar el archivo");
             ex.printStackTrace();
-
         }
     }
 }

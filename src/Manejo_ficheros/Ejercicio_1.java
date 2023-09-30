@@ -4,11 +4,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class Ejercicio_1 {
-
     public static void main(String[] args) {
 
-        // Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1.TXT y
-        //FICHERO2.TXT. Posteriormente renombra el fichero1.txt a fichero1-copia.txt
+        // Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1. TXT y
+        //FICHERO2.TXT. Posteriormente, renombra el fichero1.txt a fichero1-copia.txt
 
         // Crear el directorio
         File d = new File("NUEVODIR");
@@ -45,22 +44,16 @@ public class Ejercicio_1 {
             }
 
             // Renombrar el archivo2.txt a "nuevo_fichero2.txt"
-            File nuevoArchivo2 = new File(d, "fichero1-copia.txt");
-            if (archivo1.renameTo(nuevoArchivo2)) {
-                System.out.println("Archivo 1 renombrado exitosamente a " + "nuevo_fichero2.txt");
+            File nuevoArchivo1 = new File(d, "fichero1-copia.txt");
+            if (archivo1.renameTo(nuevoArchivo1)) {
+                System.out.println("Archivo 1 renombrado exitosamente a " + "fichero1-copia.txt");
             } else {
-                System.err.println("No se pudo renombrar el archivo 2.");
+                System.err.println("No se pudo renombrar el archivo 1.");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-
-
-
     }
-
-
 
 }

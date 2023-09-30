@@ -1,10 +1,11 @@
 package Exepciones;
 import java.util.Scanner;
-
-
-
 public class Ejercicio_4 {
     public static void main(String[] args) {
+
+        // EJERCICIO 4.
+        //Retoca el ejercicio 4 realizados de modo que cuando alguien suspenda genere una excepción.
+
         Scanner scanner = new Scanner(System.in);
 
         // Paso 1: Solicitamos al usuario que ingrese una nota
@@ -17,25 +18,26 @@ public class Ejercicio_4 {
 
             // Paso 3: Si la nota es válida, obtenemos la calificación correspondiente y la mostramos
             System.out.println("La nota ingresada es: " + obtenerCalificacion(nota));
-        } catch (NotaInvalidaException e) {
+        } catch (NotaInvalidaException | SuspensionException e) {
             // Paso 4: Si se lanza una NotaInvalidaException, capturamos la excepción y mostramos un mensaje de error
             System.out.println("Se generó una excepción: " + e.getMessage());
         } finally {
             // Paso 5: Cerramos el scanner para liberar recursos
             scanner.close();
-
         }
     }
 
     // Paso 6: Definimos una función para obtener la calificación a partir de la nota
-    public static String obtenerCalificacion(int nota) {
+    public static String obtenerCalificacion(int nota) throws SuspensionException {
         switch (nota) {
             case 0:
             case 1:
             case 2:
             case 3:
             case 4:
-                return "Insuficiente";
+                // si el alumno esta suspeno nos mostrara el mensaje de la expcion
+                throw new SuspensionException("Insuficiente");
+
             case 5:
                 return "Suficiente";
             case 6:
@@ -64,5 +66,11 @@ class NotaInvalidaException extends Exception {
     public NotaInvalidaException(String mensaje) {
         super(mensaje);
     }
+}
 
+// paso 9 Definimos una excepción personalizada llamada SuspensionException
+class SuspensionException extends Exception {
+    public SuspensionException(String mensaje) {
+        super(mensaje);
+    }
 }
