@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Ejercicio_7 {
+
+
     public static void main(String[] args) {
         // Ejercicio 7
         //Utiliza la librería FileUtils para copiar dos ficheros
@@ -23,6 +25,7 @@ public class Ejercicio_7 {
         try {
             // Copiamos archivo a la carpeta de destino CON LA SIGUIENTE CLASE:
             // Primero ponemos fichero que copiamos y después la variable donde esta almacenada ruta del destino
+
             FileUtils.copyFileToDirectory(file_ORIGEN, file_DESTINO);
             System.out.println("Fichero copiado");
 
