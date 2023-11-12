@@ -6,6 +6,7 @@ import java.io.IOException;
 public class Ejercicio_1 {
     public static void main(String[] args) {
 
+        //Ejercicio 1
         // Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1. TXT y
         //FICHERO2.TXT. Posteriormente, renombra el fichero1.txt a fichero1-copia.txt
 

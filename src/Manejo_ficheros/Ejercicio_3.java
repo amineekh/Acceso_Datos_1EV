@@ -2,7 +2,7 @@ package Manejo_ficheros;
 import java.io.File;
 public class Ejercicio_3 {
     public static void main(String[] args) {
-        // ENUNCIADO
+        // ENUNCIADO, Ejercicio 3:
         //Muestra el número de ficheros del directorio que desees y que sea distinto al de ejecución
 
         // Ruta de la carpeta que deseas contar

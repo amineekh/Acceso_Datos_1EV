@@ -33,8 +33,8 @@ public class Ejercicio_5 {
     }
 }
 
-class MiExcepcion extends Exception {
-    public MiExcepcion(String mensaje) {
-        super(mensaje);
+    class MiExcepcion extends Exception {
+        public MiExcepcion(String mensaje) {
+            super(mensaje);
+        }
     }
-}

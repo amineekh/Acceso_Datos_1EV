@@ -3,6 +3,15 @@ import java.util.ArrayList;
 public class Ejercicio_8 {
     public static void main(String[] args) {
 
+        // Ejercicio 8. ArrayList
+        //Crear ArrayList con varias marcas de coches añadir sus valores.
+        //Crear una función llamada pares a la que le pasamos el array y nos muestra solamente los valores de las
+        //posiciones pares.
+        //Ejemplo:
+        //Los valores de las posiciones pares del array [Volvo, BMW, Ford, Mazda]son:
+        //Posicion: 0- Valor: Volvo
+        //Posicion: 2- Valor: Ford
+
         // Crear un ArrayList de String para almacenar marcas de coches
         ArrayList<String> marcasDeCoches = new ArrayList<>();
 

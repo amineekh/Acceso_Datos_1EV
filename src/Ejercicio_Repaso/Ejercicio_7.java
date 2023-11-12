@@ -3,8 +3,12 @@ import java.util.Scanner;
 
 public class Ejercicio_7 {
     public static void main(String[] args) {
+        //Ejercicio 7. Arrays
+        //Leer 5 números por teclado, guardarlos en un array y mostrarlos en el mismo orden introducido.
+        //Además, añadir una función llamada calcularMediaArray que recibe el array y nos devuelve la media de sus
+        //valores.
 
-        // Declarar un array para almacenar 5 números
+        // 1. Declarar un array para almacenar 5 números
         int[] numeros = new int[5];
 
         // Leer 5 números por teclado y guardarlos en el array

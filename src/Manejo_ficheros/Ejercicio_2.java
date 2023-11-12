@@ -5,7 +5,7 @@ import java.io.File;
 public class Ejercicio_2 {
     public static void main(String[] args) {
 
-        //ENUNCIADO
+        //ENUNCIADO Ejercicio 2:
         //Crea un directorio (NUEVODIR) y dos ficheros en su interior (FICHERO1. TXT y
         //FICHERO2.TXT. Posteriormente, procede al borrado de los tres.
 

@@ -4,7 +4,7 @@ import java.io.File;
 public class Ejercicio_5 {
     public static void main(String[] args) {
 
-        //ENUNCIADO
+        //ENUNCIADO, Ejercicio 5:
         // Muestra el número de ficheros en el directorio y del tipo de sus elementos (Fich. o direc.)
 
         // Ruta de la carpeta que deseas contar

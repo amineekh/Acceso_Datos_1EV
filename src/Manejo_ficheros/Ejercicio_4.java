@@ -3,10 +3,12 @@ import java.io.File;
 
 public class Ejercicio_4 {
     public static void main(String[] args) {
+        //Ejercicio 4:
         //Tomando el directorio actual como referencia, muestra sus datos tal y como
         //se muestra en el ejemplo siguiente:
         System.out.println("INFORMACION DEL FICHERO");
 
+        // hace referencia al directorio acual
         File directorio_Actual = new File(".");
 
         // NOMBRE FICHERO

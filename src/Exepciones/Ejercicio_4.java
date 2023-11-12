@@ -61,16 +61,16 @@ public class Ejercicio_4 {
     }
 }
 
-// Paso 8: Definimos una excepción personalizada llamada NotaInvalidaException
-class NotaInvalidaException extends Exception {
-    public NotaInvalidaException(String mensaje) {
-        super(mensaje);
+    // Paso 8: Definimos una excepción personalizada llamada NotaInvalidaException
+    class NotaInvalidaException extends Exception {
+        public NotaInvalidaException(String mensaje) {
+            super(mensaje);
+        }
     }
-}
 
-// paso 9 Definimos una excepción personalizada llamada SuspensionException
-class SuspensionException extends Exception {
-    public SuspensionException(String mensaje) {
-        super(mensaje);
+    // paso 9 Definimos una excepción personalizada llamada SuspensionException
+    class SuspensionException extends Exception {
+        public SuspensionException(String mensaje) {
+            super(mensaje);
+        }
     }
-}

@@ -13,31 +13,33 @@ import java.util.EnumSet;
 
 public class Ejercicio_5 {
     public static void main(String[] args) {
-
+        //Ejercicio 5:
         // Muestra todos los ficheros del directorio ejercicios
 
-        // Especifica la ruta del directorio
+        // 1. Especificar la ruta del directorio y lo guardamos en una variable
         String directorioRuta = "C:\\Users\\amine\\IdeaProjects\\Acceso_Datos_1EV\\ejercicios";
 
-        // Convierte la ruta en un objeto Path
+        // 2. Convierte la ruta en un objeto Path
         Path directorioPath = Paths.get(directorioRuta);
 
-        // Verifica si el directorio existe
+        // 3. Verifica si el directorio existe y es un directorio válido
         if (Files.exists(directorioPath) && Files.isDirectory(directorioPath)) {
             try {
-                // Utiliza Files.walk para listar los ficheros del directorio y sus subdirectorios
+                //4. Utiliza Files.walk para listar los ficheros del directorio y sus subdirectorios
                 Files.walkFileTree(directorioPath, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VALUE, new SimpleFileVisitor<Path>() {
                     @Override
                     public FileVisitResult visitFile(Path filePath, BasicFileAttributes attrs) throws IOException {
-                        // Muestra el nombre del fichero
+                        // 5. Muestra el nombre del fichero
                         System.out.println(filePath.getFileName());
                         return FileVisitResult.CONTINUE;
                     }
                 });
             } catch (IOException e) {
+                // 6. Maneja excepciones de entrada/salida (IOException)
                 e.printStackTrace();
             }
         } else {
+            // 7. Si el directorio no existe o no es válido, imprime un mensaje de error
             System.err.println("El directorio no existe o no es un directorio válido.");
         }
 
