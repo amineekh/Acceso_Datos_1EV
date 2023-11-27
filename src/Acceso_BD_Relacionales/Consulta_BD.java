@@ -92,6 +92,7 @@ public class Consulta_BD {
             }
         }while(opcion != 0);
 
+
     }
 
     private static void eliminar_datos_empleados() throws SQLException {
