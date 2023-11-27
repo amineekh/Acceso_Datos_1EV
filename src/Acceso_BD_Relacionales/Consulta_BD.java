@@ -48,6 +48,7 @@ public class Consulta_BD {
     }
 
     private static void insertar_datos_tabla_departamentos() {
+
     }
 
     private static void insertar_datos_tabla_empledos() throws SQLException {
