@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Consulta_BD {
 
     public static Connection conn= null;
+    public static  Scanner sc = new Scanner(System.in);
 
-    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws SQLException {
         Scanner sc = new Scanner(System.in);
         int opcion=0;
@@ -18,9 +18,9 @@ public class Consulta_BD {
             System.out.println("1. conectar SGBD");
             System.out.println("2. Procede a mostrar todos registros correspondientes a los campos: emp_no, oficio y dept_no");
             System.out.println("3. Repite el paso anterior mostrando además el campo dnombre");
-            System.out.println("4. Insertar datos en la tabla departamentos");
-            System.out.println("5. Insertar datos en la tabla empleados");
-
+            System.out.println("4. Insertar datos en la tabla Departamentos o Empleados");
+            System.out.println("5. Actualizar datos de la tabla Departamento o Empleados");
+            System.out.println("6. Elimanar datos de la tabla Departementos o Empleados");
             System.out.println("introduzca una opcion: ");
             opcion =sc.nextInt();
 
@@ -38,52 +38,180 @@ public class Consulta_BD {
                     mostrar_consulta_dos_tablas();
                     break;
                 case 4:
-                    insertar_datos_tabla_departamentos();
-                case 5:
-                    insertar_datos_tabla_empledos();
+                    System.out.println("");
+                    System.out.println("En que tabla quieres INSERTAR datos:");
+                    System.out.println("1- Tabla Departamentos");
+                    System.out.println("2- Tabla Empleados");
+                    System.out.println("introduzca una opcion: 1 o 2");
+                    int elecion= sc.nextInt();
+
+                    if (elecion == 1 ){
+                        insertar_datos_departementos();
+                    } else if (elecion == 2) {
+                        insertar_datos_empleados();
+                    }else {
+                        System.out.println("La opcion que has ingresado NO existe");
+                    }
                     break;
+                case 5:
+                    System.out.println("");
+                    System.out.println("En que tabla quieres ACTUALIZAR datos:");
+                    System.out.println("1- Tabla Departamentos");
+                    System.out.println("2- Tabla Empleados");
+                    System.out.println("introduzca una opcion: 1 o 2");
+                    elecion= sc.nextInt();
+
+                    if (elecion == 1 ){
+                        actualizar_datos_departementos();
+                    } else if (elecion == 2) {
+                        actualizar_datos_empleados();
+                    }else {
+                        System.out.println("La opcion que has ingresado NO existe");
+                    }
+                    break;
+                case 6:
+                    System.out.println("");
+                    System.out.println("En que tabla quieres ELIMINAR datos:");
+                    System.out.println("1- Tabla Departamentos");
+                    System.out.println("2- Tabla Empleados");
+                    System.out.println("introduzca una opcion: 1 o 2");
+                    elecion= sc.nextInt();
+
+                    if (elecion == 1 ){
+                        System.out.println("Introduzca el dept_no del deaprtamento qu quieres eliminar");
+                        int dept_no = sc.nextInt();
+                        eliminar_datos_departementos(dept_no);
+
+                    } else if (elecion == 2) {
+                        eliminar_datos_empleados();
+                    }else {
+                        System.out.println("La opcion que has ingresado NO existe");
+                    }
+                    break;
+
             }
         }while(opcion != 0);
 
-    }
-
-    private static void insertar_datos_tabla_departamentos() {
 
     }
 
-    private static void insertar_datos_tabla_empledos() throws SQLException {
+    private static void eliminar_datos_empleados() throws SQLException {
         asignar_bd();
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO empleados VALUES(?,?,?,?,?,?,?,?)");
-        System.out.println("introduzca el emp_no");
-        int emp_no=sc.nextInt();
-        System.out.println("introduzca apellido");
-        String apellido= sc.next();
-        System.out.println("introduzca oficio");
-        String oficio = sc.next();
-        System.out.println("introduzca dir");
-        int dir= sc.nextInt();
-        System.out.println("introduzca fecha");
-        String fecha_alt= sc.next();
-        System.out.println("introzca salario");
-        float salario = sc.nextFloat();
-        System.out.println("introzca comisiion");
-        float comision = sc.nextFloat();
-        System.out.println("introduzca dept_no");
-        int dept_no_empleados= sc.nextInt();
+        PreparedStatement ps = conn.prepareStatement("delete from empleados where emp_no=?");
+        System.out.println("Introduzca el dept_no del empleado qu quieres eliminar");
+        int emp_no = sc.nextInt();
+
+        ps.setInt(1, emp_no);
+        ps.executeUpdate();
+
+        System.out.println("empleado ELIMINADO correctamnte");
+    }
+
+    private static void eliminar_datos_departementos(int dept_no) throws SQLException {
+        asignar_bd();
+        PreparedStatement ps = conn.prepareStatement("delete from departamentos where dept_no=?");
+
+        ps.setInt(1, dept_no);
+        ps.executeUpdate();
+
+        System.out.println("departamento ELIMINADO correctamnte");
+    }
+
+    private static void actualizar_datos_empleados() throws SQLException {
+        asignar_bd();
+
+        PreparedStatement ps = conn.prepareStatement("UPDATE empleados SET apellido= 'Jimenez' WHERE emp_no=?");
+        System.out.println("Introduzca emp_no del empleado que quieres actualizar");
+        int emp_no= sc.nextInt();
+
+        ps.setInt(1, emp_no);
+        ps.executeUpdate();
+
+        System.out.println("empleado ACTUALIZADO correctamente");
+
+    }
+
+    private static void actualizar_datos_departementos() throws SQLException {
+        asignar_bd();
+
+        // Solicitar datos al usuario
+        System.out.println("Introduzca emp_no del empleado que quieres actualizar:");
+        int dept_no = sc.nextInt();
+        System.out.println("Introduzca el nombre de la columna que desea actualizar (ej: dep_no, dnombre, loc):");
+        String columna = sc.next();
+        System.out.println("Introduzca el nuevo valor para la columna " + columna + ":");
+        String nuevoValor = sc.next();
+
+        //PreparedStatement ps = conn.prepareStatement("UPDATE departamentos SET loc= 'Los Angeles' WHERE dept_no=?");
+
+        PreparedStatement ps = conn.prepareStatement("UPDATE empleados SET " + columna + " = "+nuevoValor+" WHERE emp_no = ?");
+
+        ps.setInt(1, dept_no);
+        // Establecer los valores de los parámetros
+        ps.setString(1, nuevoValor);
+        ps.executeUpdate();
+
+        System.out.println("departamento ACTUALIZADO correctamente");
+
+    }
+
+
+    private static void insertar_datos_empleados() throws SQLException {
+        asignar_bd();
+        PreparedStatement ps = conn.prepareStatement("insert into empleados values(?,?,?,?,?,?,?,?)");
+        System.out.println("Introduzca emp_no");
+        int emp_no= sc.nextInt();
+        System.out.println("Introduzca apellido");
+        String apellido = sc.next();
+        System.out.println("Introduzca oficio");
+        String oficio= sc.next();
+        System.out.println("Introduzca Dir");
+        int dir = sc.nextInt();
+        System.out.println("Introduzca Fecha");
+        String fecha = sc.next();
+        System.out.println("Introduzca salario");
+        double salario = sc.nextDouble();
+        System.out.println("Introduzca Comision");
+        double comision = sc.nextDouble();
+        System.out.println("Introduzca dept_no");
+        int dept_no = sc.nextInt();
 
         ps.setInt(1, emp_no);
         ps.setString(2, apellido);
         ps.setString(3, oficio);
         ps.setInt(4, dir);
-        ps.setString(5, fecha_alt);
-        ps.setFloat(6, salario);
-        ps.setFloat(7, comision);
-        ps.setInt(8, dept_no_empleados);
+        ps.setString(5, fecha);
+        ps.setDouble(6, salario);
+        ps.setDouble(7, comision);
+        ps.setInt(8, dept_no);
         ps.executeUpdate();
-        System.out.println("registro insertado correctamente");
+
+        System.out.println("Registro Datos insertados correctamente en la tabla: EMPLEADOS");
 
     }
+
+    private static void insertar_datos_departementos() throws SQLException {
+        asignar_bd();
+        PreparedStatement ps = conn.prepareStatement("insert into departamentos values(?,?,?)");
+        System.out.println("inserta dept_no");
+        int dept_no= sc.nextInt();
+        System.out.println("inserta dnombre");
+        String dnombre= sc.next();
+        System.out.println("inserta loc");
+        String loc = sc.next();
+
+        // Establecer los valores de los parámetros
+        ps.setInt(1, dept_no);
+        ps.setString(2, dnombre);
+        ps.setString(3, loc);
+
+        ps.executeUpdate();
+
+        System.out.println("datos insertados en la tabla DEPARTAMENTOS correctamente");
+
+    }
+
 
     private static void mostrar_consulta_dos_tablas() throws SQLException {
         asignar_bd();
@@ -126,7 +254,7 @@ public class Consulta_BD {
         }
 
         System.out.println("");
-        System.out.println("ahi estan las columnas de la tabla: empleados");
+        System.out.println("ahi estan los datos de la tabla: empleados");
         System.out.println("");
     }
     private static void asignar_bd() throws SQLException {
